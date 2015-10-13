@@ -1,0 +1,15 @@
+section, h1 {
+  text-align : center;
+}
+h1 {
+  background-image : linear-gradient(to right, red,
+  #f06d06, rgb(255, 255, 0), green);
+  border-radius : 6px;
+  text-shadow : 4px 4px 4px #ffffff;
+  width : 80%;  height : 80px;
+  margin : auto; padding-top : 20px;
+  font-size : 2.2em;
+}
+header {
+  margin-top : 10px;
+}

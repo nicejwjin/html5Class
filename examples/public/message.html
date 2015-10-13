@@ -1,0 +1,15 @@
+<script>
+  function sendMessage(id, msg) {
+    document.getElementById(id).contentWindow.postMessage(msg, '*');
+  }
+  window.onmessage = function(e) {
+    document.getElementById('data').innerHTML += e.data+'<br>';
+  }
+</script>
+<iframe id="frame_1" src="message_sub1.html" style="width: 320px; height: 240px;"></iframe>
+<iframe id="frame_2" src="message_sub2.html" style="width: 320px; height: 240px;"></iframe>
+<br><br>
+<button onclick="sendMessage('frame_1', 'main: hello?');">프레임1로 보내기</button>
+<button onclick="sendMessage('frame_2', 'main: hello?');">프레임2로 보내기</button>
+<br>
+<div id="data" style="border: 1px solid black; width: 650px; height: 200px; overflow: auto;"></div>
