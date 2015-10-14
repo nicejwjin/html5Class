@@ -1,0 +1,19 @@
+<input type="button" id='btn' value="다이얼로그표시">
+<script>
+  function addListener(elem, ev, listener) {
+    if(elem.addEventListener) {
+      elem.addEventListener(ev, listener, false);
+    } else if(elem.attachEvent) {  // IE 8 이하버전
+      elem.attachEvent('on' + ev, listener);
+    } else {
+      throw new Error('이벤트 리스너에 미대응입니다.');
+    }
+  }
+  addListener(window, 'load', init);
+
+  function init() {
+    addListener(document.getElementById('btn'), 'click', function() {
+      window.alert('버튼이 클릭되었습니다.');
+    });
+  }
+</script>

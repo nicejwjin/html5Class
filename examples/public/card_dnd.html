@@ -1,0 +1,42 @@
+<script>
+  var canvas, drop;
+  function initiate(){
+    var images=document.querySelectorAll('#databox > img');
+    for(var i=0; i<images.length; i++){
+      images[i].addEventListener('dragstart', dragged, false);
+    }
+    drop=document.getElementById('canvas');
+    canvas=drop.getContext('2d');
+
+    drop.addEventListener('dragover', function(e){ e.preventDefault(); }, false);
+    drop.addEventListener('drop', dropped, false);
+  }
+
+  function dragged(e){
+    elem=e.target;
+    e.dataTransfer.setData('Text', elem.getAttribute('id'));
+    e.dataTransfer.setDragImage(e.target, 0, 0);
+  }
+  function dropped(e){
+    e.preventDefault();
+    var id=e.dataTransfer.getData('Text');
+    var elem=document.getElementById(id);
+
+    var posx=e.pageX-drop.offsetLeft;
+    var posy=e.pageY-drop.offsetTop;
+
+    canvas.drawImage(elem,posx,posy, 200, 200);
+  }
+  window.addEventListener('load', initiate, false);
+</script>
+<section id="dropbox">
+  <canvas id="canvas" width="500" height="540"></canvas>
+</section>
+<section id="databox">
+  <img id="image1" width="100" height="80" src="http://www.mariasfarmcountrykitchen.com/wp-content/uploads/2015/06/The-Flip-Side-of-Love.jpg">
+  <img id="image2" width="100" height="80" src="http://www.mariasfarmcountrykitchen.com/wp-content/uploads/2015/06/The-Flip-Side-of-Love.jpg">
+  <img id="image3" width="100" height="80" src="http://www.mariasfarmcountrykitchen.com/wp-content/uploads/2015/06/The-Flip-Side-of-Love.jpg">
+  <img id="image4" width="100" height="80" src="http://www.mariasfarmcountrykitchen.com/wp-content/uploads/2015/06/The-Flip-Side-of-Love.jpg">
+  <img id="image5" width="100" height="80" src="http://www.mariasfarmcountrykitchen.com/wp-content/uploads/2015/06/The-Flip-Side-of-Love.jpg">
+  <img id="image6" width="100" height="80" src="http://www.mariasfarmcountrykitchen.com/wp-content/uploads/2015/06/The-Flip-Side-of-Love.jpg">
+</section>

@@ -1,0 +1,14 @@
+<div id="main">
+  <p>클릭하세요. 전역적 이벤트 모델로 핸들러가 수행됩니다.</p>
+  <p onclick="alert('인라인 이벤트 모델로 처리합니다.!')">클릭하세요. 인라인 이벤트 모델로 핸들러가 수행됩니다.</p>
+  <p>클릭하세요.어떠한 기능도 수행되지 않아요.</p>
+</div>
+<script>
+  function showalert(){
+    alert('전역적 이벤트 모델로 처리합니다.!');
+  }
+  function clickme(){
+    document.getElementsByTagName('p')[0].onclick=showalert;
+  }
+  window.onload=clickme;
+</script>

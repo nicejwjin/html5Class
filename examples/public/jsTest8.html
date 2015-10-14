@@ -1,0 +1,23 @@
+<div id="main">
+  <p>JavaScript</p>
+  <p>HTML5</p>
+</div>
+<p>CSS3</p>
+<script>
+  function clickme() {
+    var list = document.querySelectorAll("div>p");
+    for (var i = 0; i < list.length; i++) {
+      list[i].onclick = showalert;
+      list[i].onmouseover = function() {
+        this.style.color = 'red';
+      };
+      list[i].onmouseout = function() {
+        this.style.color = 'black';
+      };
+    }
+  }
+  function showalert(e) {
+    alert(e.type + " 이벤트 발생!! - " + e.target.innerHTML);
+  }
+  window.onload = clickme;
+</script>
