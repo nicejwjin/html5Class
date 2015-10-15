@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Video on Canvas</title>
+  <style>
+    .boxes{
+      display: inline-block; margin: 10px;  padding: 5px; border: 1px solid #999999;
+    }
+  </style>
+  <script src="canvasvideo.js"></script>
+</head>
+<body style="text-align:center;">
+<header>
+  <h1>캔바스를 이용하여 비디오를 그레이톤으로 출력</h1>
+</header>
+<section class="boxes">
+  <video id="media" width="483" height="272">
+    <source src="video/konan.mov">
+  </video>
+</section>
+<section class="boxes">
+  <canvas id="canvas" width="483" height="272">
+    Your browser doesn't support the canvas element
+  </canvas>
+</section>
+</body>
+</html>
